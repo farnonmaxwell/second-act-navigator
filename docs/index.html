@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second Act Navigator — Your Experience Is Your Superpower</title>
+<meta name="description" content="An AI-powered career platform designed for experienced professionals over 50. Find meaningful work that values your experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ==================== NAVIGATION ==================== -->
+<nav class="main-nav" id="mainNav">
+  <div class="nav-container">
+    <a href="#" class="nav-logo" onclick="showScreen('welcome')">
+      <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+        <path d="M10 20C10 20 12 14 16 14C20 14 22 20 22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16 14V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M13 10L16 8L19 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Second Act Navigator</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" class="nav-link active" data-screen="welcome" onclick="showScreen('welcome')">Home</a></li>
+      <li><a href="#" class="nav-link" data-screen="profile" onclick="showScreen('profile')">My Profile</a></li>
+      <li><a href="#" class="nav-link" data-screen="career-matches" onclick="showScreen('career-matches')">Job Matches</a></li>
+      <li><a href="#" class="nav-link" data-screen="applications" onclick="showScreen('applications')">My Applications</a></li>
+      <li><a href="#" class="nav-link disabled" data-screen="interview-prep" onclick="showScreen('interview-prep')">Interview Prep <span class="coming-soon-badge">Coming Soon</span></a></li>
+      <li><a href="#" class="nav-link" data-screen="settings" onclick="showSettings()">Settings</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ==================== SCREEN 1: WELCOME ==================== -->
+<section class="screen active" id="screen-welcome">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-illustration">
+        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+          <!-- Warm abstract landscape -->
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#e8f4f8"/>
+              <stop offset="100%" stop-color="#f0f7f0"/>
+            </linearGradient>
+            <linearGradient id="hillGrad1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#4a9e7d"/>
+              <stop offset="100%" stop-color="#3d8b6e"/>
+            </linearGradient>
+            <linearGradient id="hillGrad2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5bb89a"/>
+              <stop offset="100%" stop-color="#4a9e7d"/>
+            </linearGradient>
+            <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f4d03f"/>
+              <stop offset="100%" stop-color="#f0b429"/>
+            </linearGradient>
+          </defs>
+          <!-- Sky -->
+          <rect width="400" height="300" fill="url(#skyGrad)"/>
+          <!-- Sun -->
+          <circle cx="300" cy="100" r="40" fill="url(#sunGrad)" opacity="0.9"/>
+          <circle cx="300" cy="100" r="55" fill="#f4d03f" opacity="0.15"/>
+          <circle cx="300" cy="100" r="70" fill="#f4d03f" opacity="0.08"/>
+          <!-- Clouds -->
+          <ellipse cx="100" cy="80" rx="40" ry="15" fill="white" opacity="0.6"/>
+          <ellipse cx="120" cy="75" rx="30" ry="12" fill="white" opacity="0.5"/>
+          <ellipse cx="250" cy="60" rx="35" ry="12" fill="white" opacity="0.4"/>
+          <!-- Hills -->
+          <path d="M0 220 Q100 160 200 200 Q300 240 400 190 L400 300 L0 300Z" fill="url(#hillGrad1)" opacity="0.7"/>
+          <path d="M0 250 Q150 200 250 230 Q350 260 400 220 L400 300 L0 300Z" fill="url(#hillGrad2)" opacity="0.8"/>
+          <!-- Path/road -->
+          <path d="M180 300 Q190 260 200 240 Q220 210 260 190" stroke="#e8d5b7" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7"/>
+          <path d="M185 300 Q195 260 205 240 Q225 210 265 190" stroke="#d4c4a8" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round" fill="none" opacity="0.5"/>
+          <!-- Small figure on path -->
+          <circle cx="220" cy="228" r="5" fill="#4a6fa5"/>
+          <line x1="220" y1="233" x2="220" y2="248" stroke="#4a6fa5" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="220" y1="238" x2="214" y2="244" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round"/>
+          <line x1="220" y1="238" x2="226" y2="244" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round"/>
+          <line x1="220" y1="248" x2="215" y2="258" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round"/>
+          <line x1="220" y1="248" x2="225" y2="258" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h1 class="hero-headline">You're not starting over.<br><span class="highlight">You're starting from experience.</span></h1>
+      <p class="hero-subtext">Second Act Navigator uses AI to match your decades of real-world experience with roles that actually value what you bring. We help you find work that fits your life now — not the one you had before.</p>
+      <p class="hero-subtext-secondary">Think of us as a knowledgeable friend who understands the job market and knows your worth — even when the world makes you doubt it.</p>
+      <button class="btn-primary btn-large" onclick="showScreen('profile')">
+        Let's get started
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="hero-note">Free to start. No credit card required.</p>
+    </div>
+  </div>
+
+  <!-- Trust indicators -->
+  <div class="trust-section">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Your data stays yours</h3>
+          <p>We never sell your information. Ever.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Built for experience</h3>
+          <p>Designed specifically for professionals over 50.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>No judgement here</h3>
+          <p>Just practical help, at your own pace.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SCREEN 2: YOUR PROFILE ==================== -->
+<section class="screen" id="screen-profile">
+  <div class="profile-container">
+    <div class="profile-header">
+      <h2>Let's learn a bit about you</h2>
+      <p class="profile-subtitle">Take your time — there are no wrong answers here. We just want to understand what makes you, you.</p>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-wrapper">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 12.5%"></div>
+      </div>
+      <span class="progress-text" id="progressText">Question 1 of 8</span>
+    </div>
+
+    <!-- Questions Container -->
+    <div class="questions-container" id="questionsContainer">
+
+      <!-- Question 1 -->
+      <div class="question-card active" data-question="1">
+        <div class="question-emoji">💼</div>
+        <label class="question-label">What was your most recent job title?</label>
+        <p class="question-helper">Don't worry about making it sound impressive — just tell us what you did.</p>
+        <input type="text" class="question-input" placeholder="e.g. Operations Manager, Teacher, Sales Director..." id="q1">
+        <div class="question-actions">
+          <div></div>
+          <button class="btn-primary" onclick="nextQuestion(2)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question-card" data-question="2">
+        <div class="question-emoji">📅</div>
+        <label class="question-label">How many years of work experience do you have?</label>
+        <p class="question-helper">A rough number is fine. All those years count for something — trust us.</p>
+        <div class="option-chips">
+          <button class="chip" onclick="selectChip(this, 'q2')">10–15 years</button>
+          <button class="chip" onclick="selectChip(this, 'q2')">15–20 years</button>
+          <button class="chip" onclick="selectChip(this, 'q2')">20–25 years</button>
+          <button class="chip" onclick="selectChip(this, 'q2')">25–30 years</button>
+          <button class="chip" onclick="selectChip(this, 'q2')">30+ years</button>
+        </div>
+        <input type="hidden" id="q2">
+        <div class="question-actions">
+          <button class="btn-secondary" onclick="prevQuestion(1)">← Back</button>
+          <button class="btn-primary" onclick="nextQuestion(3)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question-card" data-question="3">
+        <div class="question-emoji">⭐</div>
+        <label class="question-label">What are you good at that people have always relied on you for?</label>
+        <p class="question-helper">Think about what colleagues, friends, or family always come to you for. That's your superpower.</p>
+        <textarea class="question-input question-textarea" placeholder="e.g. I'm the person everyone calls when things go wrong. I stay calm under pressure and figure out solutions..." id="q3"></textarea>
+        <div class="question-actions">
+          <button class="btn-secondary" onclick="prevQuestion(2)">← Back</button>
+          <button class="btn-primary" onclick="nextQuestion(4)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question-card" data-question="4">
+        <div class="question-emoji">❤️</div>
+        <label class="question-label">What kind of work do you actually enjoy?</label>
+        <p class="question-helper">Not what you think you should say — what genuinely makes you feel good at the end of the day?</p>
+        <textarea class="question-input question-textarea" placeholder="e.g. I love mentoring people, solving complex problems, working with my hands, organising chaos..." id="q4"></textarea>
+        <div class="question-actions">
+          <button class="btn-secondary" onclick="prevQuestion(3)">← Back</button>
+          <button class="btn-primary" onclick="nextQuestion(5)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question-card" data-question="5">
+        <div class="question-emoji">⏰</div>
+        <label class="question-label">Are you looking for full-time, part-time, or flexible work?</label>
+        <p class="question-helper">There's no right answer. Your life has changed — your work can change too.</p>
+        <div class="option-chips">
+          <button class="chip" onclick="selectChip(this, 'q5')">Full-time</button>
+          <button class="chip" onclick="selectChip(this, 'q5')">Part-time</button>
+          <button class="chip" onclick="selectChip(this, 'q5')">Flexible / Contract</button>
+          <button class="chip" onclick="selectChip(this, 'q5')">I'm open to anything</button>
+        </div>
+        <input type="hidden" id="q5">
+        <div class="question-actions">
+          <button class="btn-secondary" onclick="prevQuestion(4)">← Back</button>
+          <button class="btn-primary" onclick="nextQuestion(6)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question-card" data-question="6">
+        <div class="question-emoji">🏠</div>
+        <label class="question-label">Do you need remote work, or are you open to local roles?</label>
+        <p class="question-helper">We'll prioritise what works for your situation.</p>
+        <div class="option-chips">
+          <button class="chip" onclick="selectChip(this, 'q6')">Remote only</button>
+          <button class="chip" onclick="selectChip(this, 'q6')">Prefer remote</button>
+          <button class="chip" onclick="selectChip(this, 'q6')">Hybrid is fine</button>
+          <button class="chip" onclick="selectChip(this, 'q6')">On-site is fine</button>
+          <button class="chip" onclick="selectChip(this, 'q6')">No preference</button>
+        </div>
+        <input type="hidden" id="q6">
+        <div class="question-actions">
+          <button class="btn-secondary" onclick="prevQuestion(5)">← Back</button>
+          <button class="btn-primary" onclick="nextQuestion(7)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question-card" data-question="7">
+        <div class="question-emoji">💰</div>
+        <label class="question-label">What's your rough salary expectation?</label>
+        <p class="question-helper">This helps us filter out roles that would waste your time. You can always adjust later.</p>
+        <div class="option-chips">
+          <button class="chip" onclick="selectChip(this, 'q7')">$30k – $50k</button>
+          <button class="chip" onclick="selectChip(this, 'q7')">$50k – $75k</button>
+          <button class="chip" onclick="selectChip(this, 'q7')">$75k – $100k</button>
+          <button class="chip" onclick="selectChip(this, 'q7')">$100k – $130k</button>
+          <button class="chip" onclick="selectChip(this, 'q7')">$130k+</button>
+          <button class="chip" onclick="selectChip(this, 'q7')">I'm flexible</button>
+        </div>
+        <input type="hidden" id="q7">
+        <div class="question-actions">
+          <button class="btn-secondary" onclick="prevQuestion(6)">← Back</button>
+          <button class="btn-primary" onclick="nextQuestion(8)">Continue</button>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question-card" data-question="8">
+        <div class="question-emoji">🤝</div>
+        <label class="question-label">Is there anything that might limit the type of work you can do?</label>
+        <p class="question-helper">This is completely optional. Things like health considerations, caregiving responsibilities, or location constraints. We ask so we can help better, not to judge.</p>
+        <textarea class="question-input question-textarea" placeholder="e.g. I care for my elderly mother two days a week, I have a bad back so heavy lifting is out..." id="q8"></textarea>
+        <div class="question-actions">
+          <button class="btn-secondary" onclick="prevQuestion(7)">← Back</button>
+          <button class="btn-primary btn-finish" onclick="finishProfile()">
+            See my career matches
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SCREEN 3: CAREER MATCH RESULTS ==================== -->
+<section class="screen" id="screen-career-matches">
+  <div class="container">
+    <div class="section-header">
+      <h2>Your Career Matches</h2>
+      <p class="section-subtitle">Based on everything you've told us, here are the directions we think could be a great fit. These aren't random — they're built from your real experience.</p>
+    </div>
+
+    <div class="career-cards">
+      <!-- Best Match -->
+      <div class="career-card best-match">
+        <div class="best-match-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Best Match
+        </div>
+        <h3 class="career-title">Operations Consultant</h3>
+        <p class="career-description">Your ability to manage complex processes and stay calm under pressure makes you a natural fit for consulting. Companies need experienced operators who've actually run things — not just theorised about it. This role lets you use everything you've learned without the corporate politics.</p>
+        <div class="career-meta">
+          <span class="salary-range">$75,000 – $110,000</span>
+          <span class="work-type">Remote / Hybrid</span>
+        </div>
+        <button class="btn-primary" onclick="showScreen('job-search')">Tell me more →</button>
+      </div>
+
+      <!-- Match 2 -->
+      <div class="career-card">
+        <h3 class="career-title">Programme Manager — Non-Profit Sector</h3>
+        <p class="career-description">You mentioned you enjoy mentoring and organising chaos — that's literally the job description for programme management in the non-profit world. Your experience translates directly, and these organisations desperately need people who can actually deliver.</p>
+        <div class="career-meta">
+          <span class="salary-range">$65,000 – $90,000</span>
+          <span class="work-type">Hybrid / On-site</span>
+        </div>
+        <button class="btn-outline" onclick="showScreen('job-search')">Tell me more →</button>
+      </div>
+
+      <!-- Match 3 -->
+      <div class="career-card">
+        <h3 class="career-title">Corporate Trainer / Facilitator</h3>
+        <p class="career-description">People rely on you to explain things clearly and keep teams on track. Corporate training is a growing field that values exactly this — and your decades of real-world stories make you far more credible than someone fresh out of a certification programme.</p>
+        <div class="career-meta">
+          <span class="salary-range">$60,000 – $95,000</span>
+          <span class="work-type">Flexible</span>
+        </div>
+        <button class="btn-outline" onclick="showScreen('job-search')">Tell me more →</button>
+      </div>
+
+      <!-- Match 4 -->
+      <div class="career-card">
+        <h3 class="career-title">Customer Success Manager</h3>
+        <p class="career-description">Your people skills and problem-solving ability are exactly what companies need to keep their best clients happy. This is relationship management at its core — and experience is the one thing you can't fake in this role.</p>
+        <div class="career-meta">
+          <span class="salary-range">$65,000 – $100,000</span>
+          <span class="work-type">Remote</span>
+        </div>
+        <button class="btn-outline" onclick="showScreen('job-search')">Tell me more →</button>
+      </div>
+
+      <!-- Match 5 -->
+      <div class="career-card">
+        <h3 class="career-title">Freelance Business Advisor</h3>
+        <p class="career-description">If you want more control over your time, freelance advisory work lets you choose your clients and set your own hours. Small businesses are crying out for experienced guidance — and they'll pay well for someone who's been in the trenches.</p>
+        <div class="career-meta">
+          <span class="salary-range">$50,000 – $120,000+</span>
+          <span class="work-type">Remote / Flexible</span>
+        </div>
+        <button class="btn-outline" onclick="showScreen('job-search')">Tell me more →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SCREEN 4: JOB SEARCH RESULTS ==================== -->
+<section class="screen" id="screen-job-search">
+  <div class="container">
+    <div class="section-header">
+      <div class="job-search-banner">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        These roles were matched to your experience level and career stage — not just keywords.
+      </div>
+      <h2>Job Opportunities for You</h2>
+      <p class="section-subtitle">We found these roles based on your Operations Consultant match. Each one has been checked for experience-friendliness.</p>
+    </div>
+
+    <div class="job-listings">
+
+      <div class="job-card">
+        <div class="job-header">
+          <div>
+            <h3 class="job-title">Senior Operations Consultant</h3>
+            <p class="job-company">Meridian Advisory Group</p>
+          </div>
+          <div class="match-score match-high">
+            <span class="score-number">94</span>
+            <span class="score-label">Match</span>
+          </div>
+        </div>
+        <div class="job-tags">
+          <span class="tag tag-remote">✓ Remote</span>
+          <span class="tag tag-salary">$90k – $115k</span>
+          <span class="tag tag-type">Full-time</span>
+        </div>
+        <p class="job-snippet">Looking for a seasoned operations professional to help mid-size clients streamline their processes. 15+ years experience valued.</p>
+        <div class="job-actions">
+          <button class="btn-outline btn-small" onclick="saveJob(this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Save this job
+          </button>
+          <button class="btn-primary btn-small" onclick="showScreen('resume-builder')">Apply with AI →</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-header">
+          <div>
+            <h3 class="job-title">Business Process Consultant</h3>
+            <p class="job-company">Clearpath Solutions</p>
+          </div>
+          <div class="match-score match-high">
+            <span class="score-number">91</span>
+            <span class="score-label">Match</span>
+          </div>
+        </div>
+        <div class="job-tags">
+          <span class="tag tag-remote">✓ Remote</span>
+          <span class="tag tag-salary">$85k – $105k</span>
+          <span class="tag tag-type">Contract</span>
+        </div>
+        <p class="job-snippet">Help organisations redesign their operational workflows. Ideal for someone who's managed teams and processes at scale.</p>
+        <div class="job-actions">
+          <button class="btn-outline btn-small" onclick="saveJob(this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Save this job
+          </button>
+          <button class="btn-primary btn-small" onclick="showScreen('resume-builder')">Apply with AI →</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-header">
+          <div>
+            <h3 class="job-title">Operations Strategy Advisor</h3>
+            <p class="job-company">Hargrove & Partners</p>
+          </div>
+          <div class="match-score match-high">
+            <span class="score-number">88</span>
+            <span class="score-label">Match</span>
+          </div>
+        </div>
+        <div class="job-tags">
+          <span class="tag tag-remote">✓ Hybrid</span>
+          <span class="tag tag-salary">$95k – $120k</span>
+          <span class="tag tag-type">Full-time</span>
+        </div>
+        <p class="job-snippet">Join a boutique consultancy advising Fortune 500 companies on operational efficiency. They specifically value candidates with 20+ years of hands-on experience.</p>
+        <div class="job-actions">
+          <button class="btn-outline btn-small" onclick="saveJob(this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Save this job
+          </button>
+          <button class="btn-primary btn-small" onclick="showScreen('resume-builder')">Apply with AI →</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-header">
+          <div>
+            <h3 class="job-title">Client Operations Manager</h3>
+            <p class="job-company">Northstar Financial Services</p>
+          </div>
+          <div class="match-score match-medium">
+            <span class="score-number">85</span>
+            <span class="score-label">Match</span>
+          </div>
+        </div>
+        <div class="job-tags">
+          <span class="tag tag-remote">✓ Remote</span>
+          <span class="tag tag-salary">$80k – $100k</span>
+          <span class="tag tag-type">Full-time</span>
+        </div>
+        <p class="job-snippet">Manage client delivery operations for a growing financial services firm. Strong interpersonal skills and operational experience required.</p>
+        <div class="job-actions">
+          <button class="btn-outline btn-small" onclick="saveJob(this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Save this job
+          </button>
+          <button class="btn-primary btn-small" onclick="showScreen('resume-builder')">Apply with AI →</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-header">
+          <div>
+            <h3 class="job-title">Operational Excellence Lead</h3>
+            <p class="job-company">Summit Healthcare Group</p>
+          </div>
+          <div class="match-score match-medium">
+            <span class="score-number">82</span>
+            <span class="score-label">Match</span>
+          </div>
+        </div>
+        <div class="job-tags">
+          <span class="tag tag-remote">✓ Hybrid</span>
+          <span class="tag tag-salary">$88k – $110k</span>
+          <span class="tag tag-type">Full-time</span>
+        </div>
+        <p class="job-snippet">Drive operational improvements across a regional healthcare network. Experience in process optimisation and team leadership essential.</p>
+        <div class="job-actions">
+          <button class="btn-outline btn-small" onclick="saveJob(this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Save this job
+          </button>
+          <button class="btn-primary btn-small" onclick="showScreen('resume-builder')">Apply with AI →</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-header">
+          <div>
+            <h3 class="job-title">Process Improvement Consultant</h3>
+            <p class="job-company">Redwood Consulting</p>
+          </div>
+          <div class="match-score match-medium">
+            <span class="score-number">79</span>
+            <span class="score-label">Match</span>
+          </div>
+        </div>
+        <div class="job-tags">
+          <span class="tag tag-remote">✓ Remote</span>
+          <span class="tag tag-salary">$75k – $95k</span>
+          <span class="tag tag-type">Part-time</span>
+        </div>
+        <p class="job-snippet">Part-time consulting role helping small businesses improve their operations. Perfect for someone who wants meaningful work with flexibility.</p>
+        <div class="job-actions">
+          <button class="btn-outline btn-small" onclick="saveJob(this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Save this job
+          </button>
+          <button class="btn-primary btn-small" onclick="showScreen('resume-builder')">Apply with AI →</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-header">
+          <div>
+            <h3 class="job-title">Director of Operations</h3>
+            <p class="job-company">Greenfield Education Trust</p>
+          </div>
+          <div class="match-score">
+            <span class="score-number">76</span>
+            <span class="score-label">Match</span>
+          </div>
+        </div>
+        <div class="job-tags">
+          <span class="tag tag-remote">✓ On-site</span>
+          <span class="tag tag-salary">$85k – $105k</span>
+          <span class="tag tag-type">Full-time</span>
+        </div>
+        <p class="job-snippet">Lead operations for an education non-profit. They value life experience and a genuine passion for making a difference.</p>
+        <div class="job-actions">
+          <button class="btn-outline btn-small" onclick="saveJob(this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Save this job
+          </button>
+          <button class="btn-primary btn-small" onclick="showScreen('resume-builder')">Apply with AI →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SCREEN 5: RESUME & COVER LETTER BUILDER ==================== -->
+<section class="screen" id="screen-resume-builder">
+  <div class="container">
+    <div class="section-header">
+      <h2>Resume &amp; Cover Letter Builder</h2>
+      <p class="section-subtitle">Built for your experience — not a generic template. We've tailored everything to match this specific role.</p>
+    </div>
+
+    <div class="builder-layout">
+      <!-- Left: Job Description -->
+      <div class="builder-panel builder-job">
+        <div class="panel-header">
+          <h3>Job Description</h3>
+          <span class="panel-badge">Meridian Advisory Group</span>
+        </div>
+        <div class="panel-content">
+          <h4>Senior Operations Consultant</h4>
+          <p><strong>Location:</strong> Remote | <strong>Salary:</strong> $90,000 – $115,000</p>
+          <br>
+          <p>Meridian Advisory Group is seeking a Senior Operations Consultant to join our growing practice. You will work directly with mid-size clients across multiple industries to assess, redesign, and optimise their operational processes.</p>
+          <br>
+          <p><strong>What we're looking for:</strong></p>
+          <ul>
+            <li>15+ years of hands-on operations management experience</li>
+            <li>Proven track record of process improvement and cost reduction</li>
+            <li>Strong communication and stakeholder management skills</li>
+            <li>Ability to work independently and manage multiple client engagements</li>
+            <li>Experience with change management and team leadership</li>
+          </ul>
+          <br>
+          <p><strong>Why this role:</strong></p>
+          <p>We believe the best consultants are those who've actually done the work. We value real-world experience over certifications, and we're building a team of seasoned professionals who want to make a genuine impact.</p>
+        </div>
+      </div>
+
+      <!-- Right: Generated Documents -->
+      <div class="builder-panel builder-docs">
+        <div class="doc-tabs">
+          <button class="doc-tab active" onclick="switchDocTab('resume')">Resume</button>
+          <button class="doc-tab" onclick="switchDocTab('cover-letter')">Cover Letter</button>
+        </div>
+
+        <!-- Resume -->
+        <div class="doc-content active" id="doc-resume">
+          <div class="doc-editable" contenteditable="true">
+            <div class="resume-header-doc">
+              <h3>Your Name</h3>
+              <p>Operations Leader | Process Optimisation | Strategic Consulting</p>
+              <p class="resume-contact">your.email@email.com | (555) 123-4567 | LinkedIn Profile</p>
+            </div>
+            <hr>
+            <h4>Professional Summary</h4>
+            <p>Results-driven operations professional with over 25 years of experience leading teams, optimising processes, and driving measurable business outcomes across multiple industries. Known for staying calm under pressure, building trust with stakeholders, and turning complex challenges into practical solutions. Seeking to leverage deep operational expertise in a consulting capacity to help organisations achieve sustainable efficiency gains.</p>
+            <br>
+            <h4>Core Competencies</h4>
+            <p>Operations Management | Process Improvement | Change Management | Team Leadership | Stakeholder Engagement | Strategic Planning | Budget Management | Vendor Relations | Cross-functional Collaboration | Crisis Management</p>
+            <br>
+            <h4>Professional Experience</h4>
+            <p><strong>Operations Manager</strong> — Previous Company Name | 2010 – 2024</p>
+            <ul>
+              <li>Led a team of 35+ staff across three departments, consistently exceeding operational KPIs</li>
+              <li>Redesigned end-to-end workflows resulting in 28% cost reduction over two years</li>
+              <li>Managed $4.2M annual operating budget with zero overruns for five consecutive years</li>
+              <li>Implemented new vendor management system, reducing procurement cycle time by 40%</li>
+              <li>Mentored 12 junior managers, with 8 promoted to senior roles</li>
+            </ul>
+            <br>
+            <p><strong>Assistant Operations Director</strong> — Earlier Company | 2002 – 2010</p>
+            <ul>
+              <li>Supported operational strategy for a 200-person division</li>
+              <li>Led process audit initiative that identified $1.8M in annual savings</li>
+              <li>Coordinated cross-departmental projects involving IT, HR, and Finance</li>
+            </ul>
+            <br>
+            <h4>Education</h4>
+            <p><strong>Bachelor of Business Administration</strong> — State University</p>
+          </div>
+          <div class="doc-actions">
+            <button class="btn-primary" onclick="downloadDoc('resume')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Resume
+            </button>
+          </div>
+        </div>
+
+        <!-- Cover Letter -->
+        <div class="doc-content" id="doc-cover-letter">
+          <div class="doc-editable" contenteditable="true">
+            <p>Dear Hiring Manager,</p>
+            <br>
+            <p>I'm writing to express my strong interest in the Senior Operations Consultant position at Meridian Advisory Group. With over 25 years of hands-on operations management experience, I believe I can bring immediate value to your clients and your team.</p>
+            <br>
+            <p>Throughout my career, I've been the person organisations turn to when things need to work better. I've led teams of 35+, managed multi-million dollar budgets, and redesigned processes that delivered measurable results — including a 28% cost reduction in my most recent role. But beyond the numbers, what I bring is the kind of judgement and calm that only comes from decades of actually doing the work.</p>
+            <br>
+            <p>What drew me to Meridian is your stated belief that the best consultants are those who've actually done the work. I couldn't agree more. I've spent my career in the trenches of operations — not theorising from the sidelines — and I'm ready to bring that experience to your clients in a consulting capacity.</p>
+            <br>
+            <p>I'm particularly excited about the opportunity to work with mid-size organisations, where operational improvements can have an outsized impact. I've seen first-hand how the right process changes can transform not just efficiency, but team morale and client satisfaction.</p>
+            <br>
+            <p>I would welcome the opportunity to discuss how my experience aligns with your needs. Thank you for your time and consideration.</p>
+            <br>
+            <p>Warm regards,<br>Your Name</p>
+          </div>
+          <div class="doc-actions">
+            <button class="btn-primary" onclick="downloadDoc('cover-letter')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Cover Letter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SCREEN 6: APPLICATION TRACKER ==================== -->
+<section class="screen" id="screen-applications">
+  <div class="container">
+    <div class="section-header">
+      <h2>Your Applications</h2>
+      <p class="section-subtitle">Keep track of everything in one place. We'll remind you when it's time to follow up — no more wondering "did I hear back?"</p>
+    </div>
+
+    <div class="tracker-table-wrapper">
+      <table class="tracker-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Date Applied</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Company">Meridian Advisory Group</td>
+            <td data-label="Role">Senior Operations Consultant</td>
+            <td data-label="Date Applied">April 8, 2026</td>
+            <td data-label="Status"><span class="status-badge status-interview">Interview Scheduled</span></td>
+            <td data-label="Action"><button class="btn-primary btn-small" onclick="showScreen('interview-prep')">Prepare for Interview</button></td>
+          </tr>
+          <tr>
+            <td data-label="Company">Clearpath Solutions</td>
+            <td data-label="Role">Business Process Consultant</td>
+            <td data-label="Date Applied">April 5, 2026</td>
+            <td data-label="Status"><span class="status-badge status-followup">Follow-up Due</span></td>
+            <td data-label="Action"><button class="btn-outline btn-small" onclick="showFollowUp()">Send Follow-up Email</button></td>
+          </tr>
+          <tr>
+            <td data-label="Company">Hargrove & Partners</td>
+            <td data-label="Role">Operations Strategy Advisor</td>
+            <td data-label="Date Applied">April 3, 2026</td>
+            <td data-label="Status"><span class="status-badge status-applied">Applied</span></td>
+            <td data-label="Action"><span class="action-note">Waiting for response</span></td>
+          </tr>
+          <tr>
+            <td data-label="Company">Northstar Financial</td>
+            <td data-label="Role">Client Operations Manager</td>
+            <td data-label="Date Applied">April 1, 2026</td>
+            <td data-label="Status"><span class="status-badge status-offer">Offer Received!</span></td>
+            <td data-label="Action"><button class="btn-primary btn-small" onclick="showOfferToast()">Review Offer</button></td>
+          </tr>
+          <tr>
+            <td data-label="Company">Summit Healthcare</td>
+            <td data-label="Role">Operational Excellence Lead</td>
+            <td data-label="Date Applied">March 28, 2026</td>
+            <td data-label="Status"><span class="status-badge status-noresponse">No Response</span></td>
+            <td data-label="Action"><button class="btn-outline btn-small" onclick="showFollowUp()">Send Follow-up Email</button></td>
+          </tr>
+          <tr>
+            <td data-label="Company">Redwood Consulting</td>
+            <td data-label="Role">Process Improvement Consultant</td>
+            <td data-label="Date Applied">March 25, 2026</td>
+            <td data-label="Status"><span class="status-badge status-applied">Applied</span></td>
+            <td data-label="Action"><span class="action-note">Waiting for response</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Follow-up Email Modal -->
+    <div class="modal-overlay" id="followUpModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>Follow-up Email</h3>
+          <button class="modal-close" onclick="closeFollowUp()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-note">We've drafted this for you. Feel free to edit before sending.</p>
+          <div class="email-preview" contenteditable="true">
+            <p><strong>Subject:</strong> Following up — Business Process Consultant application</p>
+            <br>
+            <p>Dear Hiring Team,</p>
+            <br>
+            <p>I hope this message finds you well. I wanted to follow up on my application for the Business Process Consultant position, which I submitted on April 5th.</p>
+            <br>
+            <p>I remain very interested in this opportunity and believe my 25+ years of operations experience would be a strong fit for your team. I'd welcome the chance to discuss how I could contribute to Clearpath Solutions' mission.</p>
+            <br>
+            <p>Please don't hesitate to reach out if you need any additional information from me. Thank you for your time and consideration.</p>
+            <br>
+            <p>Best regards,<br>Your Name</p>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-secondary" onclick="closeFollowUp()">Cancel</button>
+          <button class="btn-primary" onclick="sendFollowUp()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Email
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SCREEN 7: INTERVIEW PREP (COMING SOON) ==================== -->
+<section class="screen" id="screen-interview-prep">
+  <div class="container">
+    <div class="coming-soon-screen">
+      <div class="coming-soon-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#4a9e7d" stroke-width="1.5">
+          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+      </div>
+      <h2>Get ready to walk in confident.</h2>
+      <p class="coming-soon-description">Our Interview Preparation module is being built right now. Here's what's coming:</p>
+
+      <div class="coming-soon-features">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h4>Personalised Mock Questions</h4>
+          <p>Interview questions tailored to your profile and the specific job you're applying for. No generic lists — real preparation for real interviews.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h4>AI Feedback on Your Answers</h4>
+          <p>Practice your responses and get constructive feedback on clarity, confidence, and content. Like having a coach in your corner.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h4>Handling Age-Related Questions</h4>
+          <p>Professional, confident strategies for addressing questions about experience level, technology skills, and career transitions. Turn your age into your advantage.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h4>Salary Negotiation Guide</h4>
+          <p>Know your worth and learn how to negotiate with confidence. Data-driven guidance based on your experience level and market rates.</p>
+        </div>
+      </div>
+
+      <div class="notify-section">
+        <h3>Be the first to know when this launches</h3>
+        <div class="notify-form">
+          <input type="email" placeholder="Your email address" class="notify-input" id="notifyEmail">
+          <button class="btn-primary" onclick="submitNotify()">Notify Me</button>
+        </div>
+        <p class="notify-note" id="notifyConfirm" style="display:none;">Thanks! We'll let you know as soon as it's ready. 🎉</p>
+      </div>
+
+      <!-- Offer Evaluation Placeholder -->
+      <div class="future-card">
+        <div class="future-badge">Also Coming Soon</div>
+        <h4>Is this the right offer? We'll help you decide.</h4>
+        <p>Our Offer Evaluation tool will help you weigh salary, benefits, flexibility, culture fit, and long-term potential — so you can make the decision that's right for <em>your</em> life, not just your bank account.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SETTINGS SCREEN ==================== -->
+<section class="screen" id="screen-settings">
+  <div class="container">
+    <div class="section-header">
+      <h2>Settings</h2>
+      <p class="section-subtitle">Manage your preferences and account details.</p>
+    </div>
+    <div class="settings-grid">
+      <div class="settings-card">
+        <h3>Profile Information</h3>
+        <p>Update your personal details, work preferences, and career goals at any time.</p>
+        <button class="btn-outline" onclick="showScreen('profile')">Edit Profile</button>
+      </div>
+      <div class="settings-card">
+        <h3>Notification Preferences</h3>
+        <p>Choose how and when you'd like to hear from us. We promise not to spam you.</p>
+        <div class="toggle-group">
+          <label class="toggle-label">
+            <span>Email me new job matches</span>
+            <input type="checkbox" checked><span class="toggle-switch"></span>
+          </label>
+          <label class="toggle-label">
+            <span>Follow-up reminders</span>
+            <input type="checkbox" checked><span class="toggle-switch"></span>
+          </label>
+          <label class="toggle-label">
+            <span>Weekly career tips</span>
+            <input type="checkbox"><span class="toggle-switch"></span>
+          </label>
+        </div>
+      </div>
+      <div class="settings-card">
+        <h3>Privacy &amp; Data</h3>
+        <p>Your data is yours. We never sell it, share it, or use it for anything you haven't agreed to.</p>
+        <button class="btn-outline">Download My Data</button>
+        <button class="btn-danger">Delete My Account</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TOAST NOTIFICATION ==================== -->
+<div class="toast" id="toast"></div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <p class="footer-logo">Second Act Navigator</p>
+        <p class="footer-tagline">Your experience is your superpower.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About</a>
+      </div>
+      <p class="footer-copy">An <a href="https://www.youtube.com/@EmpowerOver50" target="_blank">Empower Over 50</a> project. Built with care.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
